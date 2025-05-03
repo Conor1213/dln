@@ -2,10 +2,10 @@ import os
 
 
 datasets = [
-    'Heart',
+    'breast_cancer',
 ]
 
-seeds = list(range(1))
+seeds = [42]
 if os.environ.get('SLURM_ARRAY_TASK_ID') is not None:  # in case of slurm array job, only run one seed per job
     seeds = [int(os.environ["SLURM_ARRAY_TASK_ID"])]
 
@@ -51,9 +51,9 @@ total_num_cpus_train = 16
 total_num_gpus_train = 0
 
 if local_laptop:
-    total_num_cpus_hpo = 8
+    total_num_cpus_hpo = 1
     total_num_gpus_hpo = 0
-    total_num_cpus_train = 8
+    total_num_cpus_train = 1
     total_num_gpus_train = 0
 
 # Based on experiments, using 1 CPU (and 0 GPU because splitting A100 into many fractions is inefficient) per trial
