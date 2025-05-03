@@ -490,7 +490,7 @@ def evaluate_computation(model, sympy_code_path, graph_path, bits_for_values, bi
 
     parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     viz_code_path = f"{parent_dir}/experiments/DLN_viz.py"
-    cmd = ['python', viz_code_path, sympy_code_path, graph_path, '--only_calc_stats']
+    cmd = ['python3', viz_code_path, sympy_code_path, graph_path, '--only_calc_stats']
     try:
         cmd_return = subprocess.run(cmd, capture_output=True, text=True, timeout=simplify_timeout_second)
         if cmd_return.returncode == 0 and cmd_return.stdout:

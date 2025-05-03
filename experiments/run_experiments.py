@@ -45,7 +45,7 @@ def train_remote(params):
     torch.set_num_threads(1)
     
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    cmd = f'python {current_dir}/main.py --train_model True '
+    cmd = f'python3 {current_dir}/main.py --train_model True '
     cmd += ' '.join(f'--{k} {v}' for k, v in params.items())
     cmd += ' --save_model'  # make sure to add a space before '--flag'
     # cmd += ' --log_training'
